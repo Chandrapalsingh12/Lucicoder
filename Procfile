@@ -1,1 +1,1 @@
-web: gunicorn lucicoder.wsgi --log-file -
+web: gunicorn lucicoder.wsgi
