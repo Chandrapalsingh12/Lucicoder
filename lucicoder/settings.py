@@ -27,7 +27,7 @@ SECRET_KEY = 'mnw8^(u2j9rrey7eyhw6t=u5c-$5*zjgd_=v8$w+h%8+v%x#xt'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1:8000','thelucicoder.herokuapp.com']
 
 
 # Application definition
