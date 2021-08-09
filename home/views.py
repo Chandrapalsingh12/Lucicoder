@@ -61,15 +61,15 @@ def handelSignup(request):
 
         if len(username)<10:
              messages.error(request, "Your Username must be 10 characters")
-             return redirect("/")
+             return redirect("home/home.html")
 
         if not username.isalnum():
              messages.error(request, "Your Username shoud only contain letters and numbers")
-             return redirect("/")
+             return redirect("home/home.html")
         
         if password != confirm:
             messages.error(request, "Password do not match")
-            return redirect("/")          
+            return redirect("home/home.html")          
              
         #Create User
         myuser = User.objects.create_user(username, email, password)
@@ -77,7 +77,7 @@ def handelSignup(request):
         myuser.last_name = lname
         myuser.save()
         messages.success(request, "Your account has been successfully created")
-        return redirect("/")
+        return redirect("home/home.html")
     else:
         return HttpResponse("Error 404 Not Found")
     
@@ -90,18 +90,18 @@ def handelLogin(request):
         if user is not None:
             login(request, user)
             messages.success(request, f"Successfully logged In {user.username} ")
-            return redirect('/')
+            return redirect('home/home.html')
         
         else:
             messages.error(request, "Invalid account , please try again")
-            return redirect('/')
+            return redirect('home/home.html')
      return HttpResponse("Error 404 Not Found")      
         
 
 def handelLogout(request):
     logout(request)
     messages.success(request, "Successfully logout")
-    return redirect('/')
+    return redirect('home/home.html')
     
        
 
